@@ -56,7 +56,11 @@ def display_workout(selected_day, database):   #Takes the day typed by the user 
     else:
         print("\nHmm, I don't recognise that routine, bro. Make sure to type Push, Pull, Leg, Cardio, Core, or Rest!")
 
-day_type = input("What's the plan today, bro? (Push / Pull / Leg / Cardio / Core / Rest): ").strip().lower()
+while True:
+    day_type = input("What's the plan today, bro? (Push / Pull / Leg / Cardio / Core / Rest): ").strip().lower()
+    if day_type == "exit" or day_type == "quit":
+        print("Catch you later, bro! Go crush your goals today! 💪🔥")
+        break
 
-display_workout(day_type, workout_database)
+    display_workout(day_type, workout_database)
 
