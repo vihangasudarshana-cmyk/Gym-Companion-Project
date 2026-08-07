@@ -47,15 +47,16 @@ workout_database["core"] = ["Plank", "Hanging Leg Raises", "Ab Wheel"]   #add ne
 workout_database["rest"] = ["Active recovery walk", "Hydrate", "8+ hours sleep"]   #update
 workout_database["push"].append("Cable Flyes")
 
+def display_workout(selected_day, database):   #Takes the day typed by the user and prints the routine from the database.
+    if selected_day in database:
+        print(f"\nAwesome! Here is your routine for {selected_day.upper()}, bro:")
+
+        for activity in database[selected_day]:
+            print(f"- {activity}")
+    else:
+        print("\nHmm, I don't recognise that routine, bro. Make sure to type Push, Pull, Leg, Cardio, Core, or Rest!")
 
 day_type = input("What's the plan today, bro? (Push / Pull / Leg / Cardio / Core / Rest): ").strip().lower()
 
-if day_type in workout_database:
-    print(f"\nAwesome! Here is your routine for {day_type.upper()}, bro:")
-
-    for activity in workout_database[day_type]:
-        print(f"- {activity}")
-
-else:
-    print ("\nHmm, I don't recognise that routine, bro. Make sure to type Push, Pull, Leg, or Rest!")
+display_workout(day_type, workout_database)
 
