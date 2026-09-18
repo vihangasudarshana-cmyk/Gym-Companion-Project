@@ -61,6 +61,14 @@ while True:
     if day_type == "exit" or day_type == "quit":
         print("Catch you later, bro! Go crush your goals today! 💪🔥")
         break
+    elif day_type == "add":
+        new_day = input("Enter the name of the new routine (e.g., Arms):").strip().lower()
+        exercises_raw = input("Enter the name of the exercise (e.g., Bicep Curls, Skull crushers) :").strip().lower()
 
-    display_workout(day_type, workout_database)
+        workout_database[new_day] = [ex.strip() for ex in exercises_raw.split(",")]
+
+        print(f"Boom! {new_day.upper()} routine has been added to your database!")
+
+    else:
+        display_workout(day_type, workout_database)
 
